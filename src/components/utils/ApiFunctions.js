@@ -5,6 +5,13 @@ export const api = axios.create({
     baseURL: "https://darbar-hotel.onrender.com",
 })
 
+api.interceptors.request.use((config) => {
+    console.log("➡️ Request URL:", config.baseURL + config.url);
+    console.log("➡️ Method:", config.method?.toUpperCase());
+    console.log("➡️ Data:", config.data);
+    return config;
+});
+
 export async function addRoom(photo, roomType, roomPrice) {
     const formData= new FormData()
     formData.append("photo", photo)
@@ -62,7 +69,7 @@ export async function updateRoom(roomId, roomData) {
   
 export async function getRoomById(roomId) {
     try {
-        const result = await api.get(`/room/room/${roomId}`)
+        const result = await api.get(`/room/${roomId}`)
         return result.data
     } catch (error) {
         throw new Error(`Error fetching rooms ${error.message}`)
