@@ -2,7 +2,7 @@ import axios from "axios"
  
 
 export const api = axios.create({
-    baseURL: "http://localhost:8081"
+    baseURL: "http://darbar-hotel.onrender.com/",
 })
 
 export async function addRoom(photo, roomType, roomPrice) {

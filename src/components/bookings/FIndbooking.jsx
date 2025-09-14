@@ -9,7 +9,7 @@ const FIndbooking = () => {
     try {
       setError("");
       const response = await fetch(
-        `https://ecommerce-backend-latest-sms8.onrender.com/bookings/confirmation/${confirmationCode}`
+        `http://darbar-hotel.onrender.com/bookings/confirmation/${confirmationCode}`
       );
       if (!response.ok) throw new Error("Booking not found");
       const data = await response.json();
@@ -23,7 +23,7 @@ const FIndbooking = () => {
   const checkoutBooking = async (bookingId) => {
     try {
       await fetch(
-        `https://ecommerce-backend-latest-sms8.onrender.com/bookings/booking/${bookingId}/delete`,
+        `http://darbar-hotel.onrender.com/bookings/booking/${bookingId}/delete`,
         { method: "DELETE" }
       );
       alert("Checkout successful!");
